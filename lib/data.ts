@@ -7,7 +7,7 @@ export const profile = {
   email: "abhi8904876457@gmail.com",
   phone: "+91 7795747952",
   github: "https://github.com/Abhiram-k1",
-  linkedin: "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/in/kundurthi-abhiram-287b57291/",
   cgpa: "8.3",
   summary:
     "Aspiring AI & Data Science professional with hands-on experience across machine learning, data analytics, and IoT systems. AI Club President recognized for an award-winning hardware project and a top-2000 competitive programming rank, with certifications from Goldman Sachs, Google, IBM, NVIDIA, Oracle, and Vanderbilt University.",
@@ -130,6 +130,7 @@ export const projects = [
     description:
       "Designed a machine learning framework predicting session-key compromise in cryptographic exchanges (DH, TLS, SSH) before channel establishment. Features real-time predictions via WebSockets, Isotonic Regression calibration, and a Streamlit dashboard showing SHAP explainability waterfall plots.",
     signature: true,
+    link: "https://zero-trust-ai-wstdo5muzny9jxtfeqvdyu.streamlit.app/",
   },
   {
     title: "PlaceNext — Placement Portal",
@@ -156,6 +157,7 @@ export const projects = [
     stack: ["Python", "Streamlit", "Cryptography", "RSA", "ECC"],
     description:
       "Interactive communication simulator implementing end-to-end encryption. Simulates Diffie-Hellman key exchange, Elliptic Curve Cryptography (ECC) signatures, RSA encryption, and SHA hashing for message integrity validation.",
+    link: "https://secure-message-communication-using-public-key-cryptography-cqk.streamlit.app/",
   },
   {
     title: "Loan Approval Prediction Model",
@@ -164,6 +166,25 @@ export const projects = [
     stack: ["Python", "Scikit-learn", "Streamlit", "PCA"],
     description:
       "Applied six ML algorithms — Logistic Regression, Decision Tree, Random Forest, KNN, Naive Bayes, SVM — for loan approval prediction. Added KMeans clustering with PCA for unsupervised applicant segmentation, deployed as real-time predictions via Streamlit.",
+    link: "https://loan-approval-app-tcag8yuchhvvmuc5yayjwn.streamlit.app/",
+  },
+  {
+    title: "Fraud Detection System",
+    award: "Deployed via Streamlit",
+    period: "2025",
+    stack: ["Python", "Machine Learning", "Streamlit"],
+    description:
+      "A machine learning based fraud detection system identifying suspicious transactions with high accuracy.",
+    link: "https://fraud-detection-system-y65zpmvqwyq23psebhhhqc.streamlit.app/",
+  },
+  {
+    title: "Election Process Education (Elect-IQ)",
+    award: "Interactive Education",
+    period: "2025",
+    stack: ["Python", "Streamlit"],
+    description:
+      "An interactive educational platform designed to educate users about the election process, voting rights, and democratic principles.",
+    link: "https://election-process-education-d3ra8jrcon92cmxh8lzwtg.streamlit.app/#elect-iq",
   },
   {
     title: "Fake News Prediction Model",

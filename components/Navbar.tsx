@@ -104,7 +104,7 @@ export default function Navbar() {
             className="inline-block w-2.5 h-2.5 rounded-full bg-copper"
             aria-hidden="true"
           />
-          K. Abhiram
+          KA.DEV
         </a>
         <ul className="hidden md:flex items-center gap-8 eyebrow">
           {links.map((l) => (

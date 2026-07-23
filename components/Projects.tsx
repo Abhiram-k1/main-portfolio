@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Zap, ExternalLink } from "lucide-react";
 import { projects, academicProjects } from "@/lib/data";
 
 export default function Projects() {
@@ -52,7 +52,7 @@ export default function Projects() {
             <p className="text-sm md:text-base text-ink-soft leading-relaxed">
               {p.description}
             </p>
-            <div className="mt-auto flex flex-wrap gap-2 pt-2">
+            <div className="mt-auto flex flex-wrap gap-2 pt-2 pb-2">
               {p.stack.map((s) => (
                 <span
                   key={s}
@@ -62,7 +62,31 @@ export default function Projects() {
                 </span>
               ))}
             </div>
-            <p className="text-xs font-mono text-ink-faint">{p.period}</p>
+            
+
+            {p.link && (
+              <div className="mt-4 pt-4 border-t border-line/50">
+                <a 
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-copper hover:text-copper-soft transition-colors mb-4"
+                >
+                  Open Live App <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <div className="w-full aspect-[4/3] sm:aspect-video rounded-lg overflow-hidden border border-line bg-paper relative">
+                  <iframe 
+                    src={p.link} 
+                    title={p.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full border-0"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
+                  />
+                </div>
+              </div>
+            )}
+            
+            <p className="text-xs font-mono text-ink-faint mt-2">{p.period}</p>
           </motion.article>
         ))}
       </div>
