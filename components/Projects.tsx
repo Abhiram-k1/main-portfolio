@@ -64,6 +64,23 @@ export default function Projects() {
             </div>
             
 
+            {p.images && p.images.length > 0 && (
+              <div className="mt-3 mb-2 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 custom-scrollbar">
+    
+                {p.images.map((imgSrc, idx) => (
+                  <div key={idx} className="shrink-0 w-[85%] sm:w-[70%] aspect-video relative rounded-lg overflow-hidden border border-line snap-center">
+                    <img
+                      src={imgSrc}
+                      alt={`${p.title} screenshot ${idx + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+
             {p.link && (
               <div className="mt-4 pt-4 border-t border-line/50">
                 <a 

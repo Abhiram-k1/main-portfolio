@@ -19,7 +19,7 @@ export default function Hero() {
         <p className="eyebrow mb-5">B.Tech · AI &amp; Data Science · 2024–2028</p>
 
         <h1 className="font-display font-semibold text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.05] tracking-tight text-ink">
-          KA.DEV
+          Kundurthi Abhiram
         </h1>
 
         <p className="mt-5 max-w-xl text-lg md:text-xl text-ink-soft leading-relaxed">
