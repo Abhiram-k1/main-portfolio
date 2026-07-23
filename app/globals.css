@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, [data-theme="light-sand"] {
+  /* Circuit & Current — design tokens (Light Sand & Copper) */
+  --paper: #f1efe8;        /* warm graphite-paper */
+  --panel: #ffffffcc;
+  --ink: #1c1f1d;          /* near-black, slight green cast */
+  --ink-soft: #4b524d;
+  --ink-faint: #8a8f8a;
+  --line: #d8d4c8;
+  --copper: #b5572b;       /* oxidized copper / piezo orange */
+  --copper-soft: #e8c4a8;
+  --signal: #3f7d5c;       /* circuit-trace green, the "current" */
+
+  --font-display: "Space Grotesk", "Avenir Next", "Helvetica Neue", ui-sans-serif, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", ui-sans-serif, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+}
+
+[data-theme="dark-carbon"] {
+  /* Deep Carbon & Gold (Dark mode) */
+  --paper: #121413;        /* deep rich charcoal/black */
+  --panel: #1c1f1ecc;      /* slightly lighter dark panel */
+  --ink: #f1efe8;          /* warm cream ink */
+  --ink-soft: #b8bcb9;     /* soft gray-cream */
+  --ink-faint: #757c77;    /* faint graphite */
+  --line: #2e3330;         /* grid-line color for dark mode */
+  --copper: #d97706;       /* bright amber-gold copper */
+  --copper-soft: #3a2e1d;  /* deep gold/amber soft background */
+  --signal: #4ade80;       /* bright glowing green trace */
+}
+
+[data-theme="cyber-circuit"] {
+  /* Cyber Circuit (Matrix Dark) */
+  --paper: #090d0a;        /* deep matrix void */
+  --panel: #111612cc;      /* circuit plate card */
+  --ink: #e2e8f0;          /* silver terminal text */
+  --ink-soft: #94a3b8;     /* slate grey */
+  --ink-faint: #475569;    /* dark slate */
+  --line: #1e291b;         /* green matrix grid */
+  --copper: #10b981;       /* glowing neon-green traces */
+  --copper-soft: #064e3b;  /* deep green soft background */
+  --signal: #3b82f6;       /* bright signal blue */
+}
+
+[data-theme="nordic-frost"] {
+  /* Nordic Frost (Light Ice) */
+  --paper: #eef2f6;        /* arctic white-blue */
+  --panel: #ffffffcc;      /* frosted glass panel */
+  --ink: #1e293b;          /* deep midnight slate */
+  --ink-soft: #475569;     /* slate gray */
+  --ink-faint: #94a3b8;     /* glacier gray */
+  --line: #cbd5e1;         /* clean ice grid */
+  --copper: #0284c7;       /* cold arctic blue */
+  --copper-soft: #e0f2fe;  /* soft sky blue */
+  --signal: #ec4899;       /* vibrant pink signal */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--copper-soft);
+  color: var(--ink);
+}
+
+/* Circuit trace line drawing animation */
+.trace-line {
+  stroke-dasharray: 6 6;
+  animation: pulse-trace 30s linear infinite;
+}
+
+@keyframes pulse-trace {
+  to {
+    stroke-dashoffset: -480;
+  }
+}
+
+/* Reusable section eyebrow */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Card panel */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
