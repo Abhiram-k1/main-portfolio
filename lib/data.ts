@@ -149,7 +149,6 @@ export const projects = [
     description:
       "Converts footstep mechanical energy into electricity using piezoelectric sensors, with real-time monitoring through cloud integration. Received Best Hardware Project award at Amrita Vishwa Vidyapeetham.",
     signature: true,
-    images: ["/projects/project4.png", "/projects/project3.png", "/projects/project2.png"],
   },
   {
     title: "Secure Cryptography Communication Simulator",
@@ -168,7 +167,6 @@ export const projects = [
     description:
       "Applied six ML algorithms — Logistic Regression, Decision Tree, Random Forest, KNN, Naive Bayes, SVM — for loan approval prediction. Added KMeans clustering with PCA for unsupervised applicant segmentation, deployed as real-time predictions via Streamlit.",
     link: "https://loan-approval-app-tcag8yuchhvvmuc5yayjwn.streamlit.app/",
-    images: ["/projects/project1.png"],
   },
   {
     title: "Fraud Detection System",
