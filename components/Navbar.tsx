@@ -20,12 +20,12 @@ const themes = [
 ];
 
 export function ThemeSwitcher() {
-  const [activeTheme, setActiveTheme] = useState("light-sand");
+  const [activeTheme, setActiveTheme] = useState("dark-carbon");
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme") || "light-sand";
+    const savedTheme = localStorage.getItem("portfolio-theme") || "dark-carbon";
     setActiveTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);

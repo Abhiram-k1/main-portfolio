@@ -121,7 +121,35 @@ export const experience = [
   },
 ];
 
-export const projects = [
+// ─── Domain-organised project data ─────────────────────────────────────────
+// domain: used only as a grouping key in the Projects component
+// signature: exactly two projects carry this flag
+
+export type Project = {
+  title: string;
+  award: string;
+  period: string;
+  stack: string[];
+  description: string;
+  signature?: boolean;
+  link?: string;
+  github?: string;
+  domain: string;
+};
+
+export const projectDomains = [
+  "Machine Learning, Predictive Analytics & Intelligent Systems",
+  "Cybersecurity, Cryptography & Secure Systems",
+  "Healthcare AI, Medical Imaging & Computational Biology",
+  "Deep Learning, Materials Informatics & Scientific Computing",
+  "Optimization, Computer Systems & Control Engineering",
+  "IoT, Embedded Systems & Hardware Innovation",
+  "Full-Stack Development & Software Engineering",
+  "Data Analytics, Decision Support & Educational Technology",
+] as const;
+
+export const projects: Project[] = [
+  // ── A. Machine Learning, Predictive Analytics & Intelligent Systems ────────
   {
     title: "AKA Key Compromise Predictor ML Framework",
     award: "98.4% ROC-AUC (XGBoost & SHAP)",
@@ -131,33 +159,8 @@ export const projects = [
       "Designed a machine learning framework predicting session-key compromise in cryptographic exchanges (DH, TLS, SSH) before channel establishment. Features real-time predictions via WebSockets, Isotonic Regression calibration, and a Streamlit dashboard showing SHAP explainability waterfall plots.",
     signature: true,
     link: "https://zero-trust-ai-wstdo5muzny9jxtfeqvdyu.streamlit.app/",
-  },
-  {
-    title: "PlaceNext — Placement Portal",
-    award: "Full-Stack Enterprise App",
-    period: "Jan 2025 – Apr 2025",
-    stack: ["Node.js", "Express", "PostgreSQL", "Socket.IO", "JWT"],
-    description:
-      "A multi-tenant placement management system connecting students, company HRs, and institutional TPOs. Supports real-time hiring pipeline updates via WebSockets, secure JWT auth, robust relational schemas, and an interactive statistics dashboard.",
-    signature: true,
-  },
-  {
-    title: "Piezoelectric Footstep Power Generator",
-    award: "Awarded — Best Hardware Project",
-    period: "Nov 2024 – Jun 2025",
-    stack: ["Arduino", "Raspberry Pi", "ThingSpeak", "IoT"],
-    description:
-      "Converts footstep mechanical energy into electricity using piezoelectric sensors, with real-time monitoring through cloud integration. Received Best Hardware Project award at Amrita Vishwa Vidyapeetham.",
-    signature: true,
-  },
-  {
-    title: "Secure Cryptography Communication Simulator",
-    award: "Asymmetric & Symmetric Crypto",
-    period: "May 2025",
-    stack: ["Python", "Streamlit", "Cryptography", "RSA", "ECC"],
-    description:
-      "Interactive communication simulator implementing end-to-end encryption. Simulates Diffie-Hellman key exchange, Elliptic Curve Cryptography (ECC) signatures, RSA encryption, and SHA hashing for message integrity validation.",
-    link: "https://secure-message-communication-using-public-key-cryptography-cqk.streamlit.app/",
+    github: "https://github.com/Abhiram-k1/ZERO-TRUST-AI",
+    domain: "Machine Learning, Predictive Analytics & Intelligent Systems",
   },
   {
     title: "Loan Approval Prediction Model",
@@ -167,24 +170,19 @@ export const projects = [
     description:
       "Applied six ML algorithms — Logistic Regression, Decision Tree, Random Forest, KNN, Naive Bayes, SVM — for loan approval prediction. Added KMeans clustering with PCA for unsupervised applicant segmentation, deployed as real-time predictions via Streamlit.",
     link: "https://loan-approval-app-tcag8yuchhvvmuc5yayjwn.streamlit.app/",
+    github: "https://github.com/Abhiram-k1/LOAN-APPROVAL-PREDICTION-SYSTEM-MLBASED",
+    domain: "Machine Learning, Predictive Analytics & Intelligent Systems",
   },
   {
     title: "Fraud Detection System",
     award: "Deployed via Streamlit",
     period: "2025",
-    stack: ["Python", "Machine Learning", "Streamlit"],
+    stack: ["Python", "Scikit-learn", "Imbalanced-learn", "Streamlit"],
     description:
-      "A machine learning based fraud detection system identifying suspicious transactions with high accuracy.",
+      "A machine learning–based fraud detection system that identifies suspicious financial transactions using ensemble classifiers, SMOTE-based class balancing, and feature-importance analysis, deployed for real-time transaction scoring.",
     link: "https://fraud-detection-system-y65zpmvqwyq23psebhhhqc.streamlit.app/",
-  },
-  {
-    title: "Election Process Education (Elect-IQ)",
-    award: "Interactive Education",
-    period: "2025",
-    stack: ["Python", "Streamlit"],
-    description:
-      "An interactive educational platform designed to educate users about the election process, voting rights, and democratic principles.",
-    link: "https://election-process-education-d3ra8jrcon92cmxh8lzwtg.streamlit.app/#elect-iq",
+    github: "https://github.com/Abhiram-k1/Fraud-Detection-System",
+    domain: "Machine Learning, Predictive Analytics & Intelligent Systems",
   },
   {
     title: "Fake News Prediction Model",
@@ -193,6 +191,54 @@ export const projects = [
     stack: ["Python", "NLP", "Scikit-learn", "Flask"],
     description:
       "A fake news classifier built with TF-IDF features and Logistic Regression and Random Forest models, evaluated on accuracy, precision, recall, and F1-score, and deployed for real-time news verification.",
+    github: "https://github.com/Abhiram-k1/FAKE-NEWS-CLASSIFICATION",
+    domain: "Machine Learning, Predictive Analytics & Intelligent Systems",
+  },
+
+  // ── B. Cybersecurity, Cryptography & Secure Systems ──────────────────────
+  {
+    title: "Secure Cryptography Communication Simulator",
+    award: "Asymmetric & Symmetric Crypto",
+    period: "May 2025",
+    stack: ["Python", "Streamlit", "Cryptography", "RSA", "ECC"],
+    description:
+      "Interactive communication simulator implementing end-to-end encryption. Simulates Diffie-Hellman key exchange, Elliptic Curve Cryptography (ECC) signatures, RSA encryption, and SHA hashing for message integrity validation.",
+    signature: true,
+    link: "https://secure-message-communication-using-public-key-cryptography-cqk.streamlit.app/",
+    github: "https://github.com/Abhiram-k1/Secure-Message-Communication-using-Public-Key-Cryptography",
+    domain: "Cybersecurity, Cryptography & Secure Systems",
+  },
+
+  // ── C. Healthcare AI, Medical Imaging & Computational Biology ─────────────
+  {
+    title: "Sparse Attention U-Net for Lung Nodule Segmentation",
+    award: "6-model ablation study (LIDC-IDRI)",
+    period: "Sep 2026",
+    stack: ["Python", "PyTorch", "U-Net", "Linear Attention", "LIDC-IDRI"],
+    description:
+      "A deep learning architecture combining cross-feature spatial sparse linear attention with U-Net for precise lung nodule segmentation on the LIDC-IDRI dataset. Employs linear attention kernel factorisation and top-k sparse spatial routing; validated through a systematic 6-model ablation study against a baseline U-Net.",
+    github: "https://github.com/Abhiram-k1/LIDC_Attention_UNet",
+    domain: "Healthcare AI, Medical Imaging & Computational Biology",
+  },
+  {
+    title: "OneHealth Nexus — Disease Intelligence Platform",
+    award: "10,550 data points ingested (100% target)",
+    period: "Sep 2026",
+    stack: ["Python", "Apache Spark", "spaCy", "NetworkX", "Streamlit"],
+    description:
+      "Large-scale NLP and temporal knowledge graph system for emerging disease intelligence. Integrates multi-source heterogeneous data, distributed big-data processing via Apache Spark, biomedical entity extraction with spaCy, and an interactive Streamlit dashboard for epidemiological trend exploration.",
+    github: "https://github.com/Abhiram-k1/OneHealth-Nexus",
+    domain: "Healthcare AI, Medical Imaging & Computational Biology",
+  },
+  {
+    title: "Retinal Blood-Vessel Network — PGM Analysis",
+    award: "CHASE_DB1 · Bayesian + MRF inference",
+    period: "Sep 2026",
+    stack: ["Python", "OpenCV", "NetworkX", "Scikit-Image", "Bayesian Networks", "MRF"],
+    description:
+      "Probabilistic and mathematical analysis framework for retinal blood-vessel networks. Applies Bayesian networks, Markov Random Fields, graph-theoretic vascular modelling, geometric tortuosity, and box-counting fractal dimension analysis on the CHASE_DB1 fundus image dataset.",
+    github: "https://github.com/Abhiram-k1/retinal-blood-vessel-pgm-analysis",
+    domain: "Healthcare AI, Medical Imaging & Computational Biology",
   },
   {
     title: "Clinical Data Cleaning & Visualization",
@@ -201,6 +247,73 @@ export const projects = [
     stack: ["Python", "Pandas", "Seaborn", "Sweetviz"],
     description:
       "Automated preprocessing pipeline that generates statistical summaries and interactive visualizations for healthcare datasets.",
+    domain: "Healthcare AI, Medical Imaging & Computational Biology",
+  },
+
+  // ── D. Deep Learning, Materials Informatics & Scientific Computing ─────────
+  {
+    title: "Fracture Toughness Prediction of Composite Materials",
+    award: "Physics-Informed ML · Materials Informatics",
+    period: "2026",
+    stack: ["Python", "Scikit-learn", "Pandas", "NumPy", "Physics-Informed ML"],
+    description:
+      "Machine learning pipeline for predicting fracture toughness and mechanical properties of advanced composite materials from composition and processing parameters. Applies physics-informed feature engineering and comparative model evaluation.",
+    github: "https://github.com/Abhiram-k1/Fracture-Toughness-Prediction-of-Composite-Materials",
+    domain: "Deep Learning, Materials Informatics & Scientific Computing",
+  },
+
+  // ── E. Optimization, Computer Systems & Control Engineering ──────────────
+  {
+    title: "AI-Driven Adaptive CPU-GPU Workload Scheduling",
+    award: "LOWO evaluation · Cloud HPC",
+    period: "Sep 2026",
+    stack: ["Python", "C/C++", "CUDA", "Random Forest", "Rodinia 3.1"],
+    description:
+      "AI-driven framework for adaptive multi-objective CPU-GPU workload scheduling and resource optimisation in cloud HPC environments. Uses the Rodinia 3.1 benchmark suite with a 3-layer dataset architecture featuring a strict anti-leakage guarantee and Leave-One-Workload-Out (LOWO) cross-validation.",
+    github: "https://github.com/Abhiram-k1/AI-Driven-Adaptive-CPU-GPU-Workload-Scheduling-and-Resource-Optimization-Cloud-HPC",
+    domain: "Optimization, Computer Systems & Control Engineering",
+  },
+  {
+    title: "Quantum-Assisted Fair Resource Allocation (Q-FAR)",
+    award: "QAOA · VQE · QUBO formulations",
+    period: "Sep 2026",
+    stack: ["Python", "Qiskit", "QAOA", "VQE", "QUBO", "CVaR-QAOA"],
+    description:
+      "Quantum-assisted fair resource allocation framework (Q-FAR) for microfinance to prevent mission drift. Formulates the allocation problem as a multi-objective quadratic knapsack using QUBO and Ising Spin Glass representations, solved via quantum variational paradigms: QAOA, CVaR-QAOA, and VQE.",
+    github: "https://github.com/Abhiram-k1/Quantum-Assisted-Fair-Resource-Allocation-for-Financial-Inclusion-in-Microfinance",
+    domain: "Optimization, Computer Systems & Control Engineering",
+  },
+  {
+    title: "Greenhouse Tomato Climate & Crop Quality Control",
+    award: "11-state multivariable optimal control · MATLAB",
+    period: "Sep 2026",
+    stack: ["MATLAB", "Simulink", "ESP32", "C/C++", "Control Systems"],
+    description:
+      "An 11-state multivariable optimal greenhouse tomato climate and crop quality control system developed in pure base MATLAB. Models microclimate dynamics, soil-type substrates, and a simulated ESP32 sensor/actuator layer with 4 actuators, validated against a quantitative benchmark matrix.",
+    github: "https://github.com/Abhiram-k1/Microcontroller-Based-Tomato-Crop-Quality-Monitoring-and-Control-System-",
+    domain: "Optimization, Computer Systems & Control Engineering",
+  },
+
+  // ── F. IoT, Embedded Systems & Hardware Innovation ────────────────────────
+  {
+    title: "Piezoelectric Footstep Power Generator",
+    award: "Awarded — Best Hardware Project",
+    period: "Nov 2024 – Jun 2025",
+    stack: ["Arduino", "Raspberry Pi", "ThingSpeak", "IoT"],
+    description:
+      "Converts footstep mechanical energy into electricity using piezoelectric sensors, with real-time monitoring through cloud integration. Received Best Hardware Project award at Amrita Vishwa Vidyapeetham.",
+    domain: "IoT, Embedded Systems & Hardware Innovation",
+  },
+
+  // ── G. Full-Stack Development & Software Engineering ─────────────────────
+  {
+    title: "PlaceNext — Placement Portal",
+    award: "Full-Stack Enterprise App",
+    period: "Jan 2025 – Apr 2025",
+    stack: ["Node.js", "Express", "PostgreSQL", "Socket.IO", "JWT"],
+    description:
+      "A multi-tenant placement management system connecting students, company HRs, and institutional TPOs. Supports real-time hiring pipeline updates via WebSockets, secure JWT auth, robust relational schemas, and an interactive statistics dashboard.",
+    domain: "Full-Stack Development & Software Engineering",
   },
   {
     title: "AI Club Website — UI/UX Design",
@@ -209,17 +322,30 @@ export const projects = [
     stack: ["Figma", "Flutter (planned)"],
     description:
       "Mobile-first and desktop-responsive layouts designed to showcase AI Club activities, events, and member projects.",
+    domain: "Full-Stack Development & Software Engineering",
+  },
+
+  // ── H. Data Analytics, Decision Support & Educational Technology ──────────
+  {
+    title: "Election Process Education (Elect-IQ)",
+    award: "Interactive Education",
+    period: "2025",
+    stack: ["Python", "Streamlit"],
+    description:
+      "An interactive educational platform designed to educate users about the election process, voting rights, and democratic principles.",
+    link: "https://election-process-education-d3ra8jrcon92cmxh8lzwtg.streamlit.app/#elect-iq",
+    github: "https://github.com/Abhiram-k1/Election-Process-Education",
+    domain: "Data Analytics, Decision Support & Educational Technology",
   },
 ];
 
 export const academicProjects = [
   "Library Management System — Java, OOP",
   "Credit Risk Score Prediction System — ML + MIS analytics",
-  "Fracture Toughness Prediction using Physics-Informed Deep Learning — Material Informatics",
 ];
 
 export const skills = {
-  Languages: ["Python", "R", "Java", "C", "C++", "HTML"],
+  Languages: ["Python", "R", "Java", "C", "C++", "HTML", "SQL", "MATLAB"],
   "Libraries & Frameworks": [
     "Pandas",
     "NumPy",
@@ -231,28 +357,37 @@ export const skills = {
     "Flask",
     "OpenCV",
     "TensorFlow",
+    "PyTorch",
+    "spaCy",
+    "NetworkX",
+    "Qiskit",
   ],
   "Platforms & Tools": [
     "Google Cloud",
     "Vertex AI",
+    "Apache Spark",
     "ThingSpeak",
     "Git",
     "GitHub",
     "Jupyter",
     "VS Code",
     "PyCharm",
-    "Excel",
-    "Figma",
+    "Simulink",
     "Arduino IDE",
+    "Figma",
     "Linux",
+    "CUDA",
   ],
   Concepts: [
     "Supervised & Unsupervised ML",
     "Deep Learning",
+    "Attention Mechanisms",
     "NLP",
+    "Computer Vision",
     "Explainable AI",
-    "Data Cleaning",
-    "Uplift Modeling",
+    "Probabilistic Graphical Models",
+    "Quantum Computing",
+    "Control Systems",
     "Cryptography",
     "IoT",
     "Cloud Computing",

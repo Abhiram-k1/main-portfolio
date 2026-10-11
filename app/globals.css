@@ -2,7 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root, [data-theme="light-sand"] {
+:root, [data-theme="dark-carbon"] {
+  /* Deep Carbon & Gold (Dark mode - Default theme) */
+  --paper: #121413;        /* deep rich charcoal/black */
+  --panel: #1c1f1ecc;      /* slightly lighter dark panel */
+  --ink: #f1efe8;          /* warm cream ink */
+  --ink-soft: #b8bcb9;     /* soft gray-cream */
+  --ink-faint: #757c77;    /* faint graphite */
+  --line: #2e3330;         /* grid-line color for dark mode */
+  --copper: #d97706;       /* bright amber-gold copper */
+  --copper-soft: #3a2e1d;  /* deep gold/amber soft background */
+  --signal: #4ade80;       /* bright glowing green trace */
+
+  --font-display: "Space Grotesk", "Avenir Next", "Helvetica Neue", ui-sans-serif, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", ui-sans-serif, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+}
+
+[data-theme="light-sand"] {
   /* Circuit & Current — design tokens (Light Sand & Copper) */
   --paper: #f1efe8;        /* warm graphite-paper */
   --panel: #ffffffcc;
@@ -13,23 +30,6 @@
   --copper: #b5572b;       /* oxidized copper / piezo orange */
   --copper-soft: #e8c4a8;
   --signal: #3f7d5c;       /* circuit-trace green, the "current" */
-
-  --font-display: "Space Grotesk", "Avenir Next", "Helvetica Neue", ui-sans-serif, sans-serif;
-  --font-body: "Inter", "Helvetica Neue", ui-sans-serif, sans-serif;
-  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
-}
-
-[data-theme="dark-carbon"] {
-  /* Deep Carbon & Gold (Dark mode) */
-  --paper: #121413;        /* deep rich charcoal/black */
-  --panel: #1c1f1ecc;      /* slightly lighter dark panel */
-  --ink: #f1efe8;          /* warm cream ink */
-  --ink-soft: #b8bcb9;     /* soft gray-cream */
-  --ink-faint: #757c77;    /* faint graphite */
-  --line: #2e3330;         /* grid-line color for dark mode */
-  --copper: #d97706;       /* bright amber-gold copper */
-  --copper-soft: #3a2e1d;  /* deep gold/amber soft background */
-  --signal: #4ade80;       /* bright glowing green trace */
 }
 
 [data-theme="cyber-circuit"] {
