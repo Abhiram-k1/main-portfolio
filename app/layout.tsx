@@ -34,9 +34,17 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var t = localStorage.getItem('portfolio-theme') || 'dark-carbon';
+                  var t = localStorage.getItem('portfolio-theme-v2');
+                  if (!t) {
+                    var old = localStorage.getItem('portfolio-theme');
+                    t = (old && old !== 'light-sand') ? old : 'dark-carbon';
+                    localStorage.setItem('portfolio-theme-v2', t);
+                    localStorage.setItem('portfolio-theme', t);
+                  }
                   document.documentElement.setAttribute('data-theme', t);
-                } catch (e) {}
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'dark-carbon');
+                }
               })();
             `,
           }}

@@ -25,7 +25,17 @@ export function ThemeSwitcher() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme") || "dark-carbon";
+    let savedTheme = localStorage.getItem("portfolio-theme-v2");
+    if (!savedTheme) {
+      const legacy = localStorage.getItem("portfolio-theme");
+      if (legacy && legacy !== "light-sand") {
+        savedTheme = legacy;
+      } else {
+        savedTheme = "dark-carbon";
+      }
+      localStorage.setItem("portfolio-theme-v2", savedTheme);
+      localStorage.setItem("portfolio-theme", savedTheme);
+    }
     setActiveTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
@@ -43,6 +53,7 @@ export function ThemeSwitcher() {
   const changeTheme = (themeId: string) => {
     setActiveTheme(themeId);
     document.documentElement.setAttribute("data-theme", themeId);
+    localStorage.setItem("portfolio-theme-v2", themeId);
     localStorage.setItem("portfolio-theme", themeId);
     setIsOpen(false);
   };
